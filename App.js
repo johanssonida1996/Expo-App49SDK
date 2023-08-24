@@ -1,37 +1,41 @@
 import React from 'react';
-import { View, Text, StatusBar, Button, StyleSheet, Image } from 'react-native';
+import { View, Text, } from 'react-native';
+import LottieView from 'lottie-react-native';
+
+import Styles from "./app/config/styles";
+import colors from './app/config/colors';
+import WhiteButton from './app/components/buttons/button_white';
+import GreenButton from './app/components/buttons/button_green';
+import Screen from './app/Screen/Screen';
+import HomePage from './app/Screen/Home_Page';
+import FlatList  from './FlatList';
+
+
+
+
+
 
 export default function App() {
-  const handleButtonPress = () => {
-    try {
-      console.log('Button clicked!');
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //return <LandingPage />;
+  //return <HomePage />;
 
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Button title="Click Me" onPress={handleButtonPress} />
-        <Image style={styles.image} source={require('./assets/icon.png')} />
-      <StatusBar style="auto" />
-    </View>
-  );
+  //return <Test visible={true}/>
+// return <HomePage />;
+
+return <FlatList />
+
+// return(
+//  <Screen style={Styles.container}>
+//   <View style={{display: 'flex', justifyContent: 'center', flex: 1}}>
+//     <GreenButton title='test'></GreenButton>
+//   </View>
+//  </Screen>
+// )
+
+
+
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  image:
-  {
-    height: 100,
-    width: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 10,
-  },
-});
+
+
+
