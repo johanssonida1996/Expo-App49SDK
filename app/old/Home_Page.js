@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import LottieView from "lottie-react-native";
-import Screen from './Screen';
+import Screen from './Screen - old/Screen';
 import Styles from '../config/styles';
 
 
