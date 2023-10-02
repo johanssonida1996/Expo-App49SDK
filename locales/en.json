@@ -1,0 +1,35 @@
+{
+   "Home": "Home",
+   "Routines": "Routines",
+   "Log": "Log",
+   "List": "List",
+   "Account": "Account",
+   "Language": "Language",
+   "Save": "Save",
+   "English": "English",
+   "Swedish": "Swedish",
+   "Edit": "Edit",
+   "Remove": "Remove",
+   "Cancel": "Cancel",
+   "MarkAll": "Mark all",
+   
+
+   "AddRotuineHeader": "Add a new routine",
+   "Tags": "Select one tag that match with your routine",
+   "Name": "Name",
+   "Name-HelpText": "Enter the name of your routine",
+   "Description": "Description",
+   "Description-HelperText": "Description of your routine (optional)",
+   "AddRoutine": "Here you can add up to 10 points",
+   "AddPoint": "Add a new routine point...",
+   "AddButton": "Add",
+
+   "Category": "Category",
+   "Day": "Day",
+   "Morning": "Morning",
+   "Evening": "Evening",
+   "Exercise": "Exercise",
+   "Diet": "Diet",
+   "Work": "Work",
+   "Other": "Other"
+}

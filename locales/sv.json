@@ -1,0 +1,38 @@
+{
+   "Home": "Hem",
+   "Routines": "Rutiner",
+   "Log": "Logg",
+   "List": "Lista",
+   "Account": "Konto",
+   "Language": "Språk",
+   "Save": "Spara",
+   "English": "Engelska",
+   "Swedish": "Svenska",
+   "Edit": "Redigera",
+   "Remove": "Ta bort",
+   "Cancel": "Avbryt",
+   "MarkAll": "Markera alla",
+
+   "AddRotuineHeader": "Lägg till en ny rutin",
+   "Tags": "Välj en tagg som passar din rutin",
+   "Name": "Namn",
+   "Name-HelpText": "Skriv in namnet på din rutin",
+   "Description": "Beskrivning",
+   "Description-HelperText": "Beskrivning av din rutin (valfritt)",
+   "AddRoutine": "Här kan du lägga till upp till 10 punkter",
+   "AddPoint": "Lägg till en ny rutinpunkt...",
+   "AddButton": "Lägg till",
+
+   "Category": "Kategori",
+   "Day": "Dag",
+   "Morning": "Morgon",
+   "Evening": "Kväll",
+   "Exercise": "Träning",
+   "Diet": "Kost",
+   "Work": "Jobb",
+   "Other": "Övrigt"
+
+
+
+}
+
