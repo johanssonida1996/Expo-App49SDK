@@ -14,6 +14,7 @@
    "MarkAll": "Markera alla",
 
    "AddRotuineHeader": "Lägg till en ny rutin",
+   "EditRotuineHeader": "Redigera din rutin",
    "Tags": "Välj en tagg som passar din rutin",
    "Name": "Namn",
    "Name-HelpText": "Skriv in namnet på din rutin",
@@ -22,6 +23,7 @@
    "AddRoutine": "Här kan du lägga till upp till 10 punkter",
    "AddPoint": "Lägg till en ny rutinpunkt...",
    "AddButton": "Lägg till",
+   "EditButton": "Spara",
 
    "Category": "Kategori",
    "Day": "Dag",
@@ -30,9 +32,11 @@
    "Exercise": "Träning",
    "Diet": "Kost",
    "Work": "Jobb",
-   "Other": "Övrigt"
+   "Other": "Övrigt",
 
-
+   "tag": "Tagg",
+   "today": "Idag",
+   "allTime": "Dagar i rad"
 
 }
 

@@ -15,6 +15,7 @@
    
 
    "AddRotuineHeader": "Add a new routine",
+   "EditRotuineHeader": "Edit your routine",
    "Tags": "Select one tag that match with your routine",
    "Name": "Name",
    "Name-HelpText": "Enter the name of your routine",
@@ -23,6 +24,7 @@
    "AddRoutine": "Here you can add up to 10 points",
    "AddPoint": "Add a new routine point...",
    "AddButton": "Add",
+   "EditButton": "Save",
 
    "Category": "Category",
    "Day": "Day",
@@ -31,5 +33,9 @@
    "Exercise": "Exercise",
    "Diet": "Diet",
    "Work": "Work",
-   "Other": "Other"
+   "Other": "Other",
+
+   "tag": "Tag",
+   "today": "Today",
+   "allTime": "Days in row"
 }

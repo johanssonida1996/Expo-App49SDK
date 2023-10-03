@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Modal, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Platform, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as Yup from 'yup';
@@ -12,17 +12,33 @@ const validationSchema = Yup.object().shape({
   title: Yup.string().min(1, 'Måste innehålla minst 1 bokstav').required('Måste innehålla minst 1 bokstav'),
 });
 
-function AppModal({ isVisible, onClose, title, onAdd, buttonTitle }) {
-
+function AppModal({ isVisible, onClose, title, onAdd, buttonTitle, onEdit, initialValues }) {
   const { t } = useTranslation();
+  const [isFormValid, setIsFormValid] = useState(true);
+  const [formData, setFormData] = useState({ title: "", selectedTag: [], points: [] });
+
+  console.log('Modal:', JSON.stringify(initialValues));
+
+  // Uppdatera formData när initialValues ändras (för redigering)
+  useEffect(() => {
+    setFormData(initialValues || { title: "", selectedTag: [], points: [] });
+  }, [initialValues]);
 
   const handleSubmit = async (values) => {
     try {
       await validationSchema.validate(values, { abortEarly: false });
+      setIsFormValid(true);
+
       if (onAdd) {
         onAdd(values);
         console.log(values);
       }
+
+      if (onEdit) {
+        onEdit(values);
+      }
+
+      onClose();
     } catch (error) {
       setIsFormValid(false);
     }
@@ -31,54 +47,41 @@ function AppModal({ isVisible, onClose, title, onAdd, buttonTitle }) {
   return (
     <Modal visible={isVisible} animationType="slide" transparent={true}>
       <ScrollView style={styles.scrollView}>
-      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-        <View style={styles.modalContainer}>
-          <View style={styles.modalHeader}>
-            <Text style={styles.modalTitle}>{title}</Text>
-            <TouchableOpacity onPress={onClose} style={styles.option}>
-              <MaterialCommunityIcons name="close" color={colors.primary} size={24} />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.modalContent}>
-                <AppForm
-                  initialValues={{
-                    title: "",
-                    selectedTag: [],
-                  }}
-                  onSubmit={handleSubmit}
-                  validationSchema={validationSchema}
-                >
-                  <View>
-                    <View style={styles.gap}>
-                      <Text>{t('Name-HelpText')}</Text>
-                      <AppFormField maxLength={30} name="title" placeholder={t('Name')} />
-                    </View>
-                    {/* <View style={styles.gap}>
-                      <Text>{t('Description-HelperText')}</Text>
-                      <AppFormField 
-                      maxLength={255} 
-                      name="description" 
-                      placeholder={t('Description')}
-                      height={100}
-                      numberOfLines={4} 
-                      multiline />
-                    </View>  */}
-                    <View style={styles.gap}>
+        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>{title}</Text>
+              <TouchableOpacity onPress={onClose} style={styles.option}>
+                <MaterialCommunityIcons name="close" color={colors.primary} size={24} />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.modalContent}>
+              <AppForm
+                initialValues={formData}
+                onSubmit={handleSubmit}
+                validationSchema={validationSchema}
+              >
+                <View>
+                  <View style={styles.gap}>
+                    <Text>{t('Name-HelpText')}</Text>
+                    <AppFormField maxLength={30} name="title" placeholder={t('Name')} />
+                  </View>
+                  <View style={styles.gap}>
                     <Text>{t('AddRoutine')}</Text>
-                      <AppPointList name='points' />
-                    </View>
-                    <View style={styles.gap}>
-                      <Text>{t('Tags')}</Text>
-                      <AppTagPicker name="selectedTag" />
-                    </View>
+                    <AppPointList name='points' />
                   </View>
-                  <View style={styles.gapButton}>
-                      <SubmitButton title={buttonTitle} />
+                  <View style={styles.gap}>
+                    <Text>{t('Tags')}</Text>
+                    <AppTagPicker name="selectedTag" />
                   </View>
-                </AppForm>
+                </View>
+                <View style={styles.gapButton}>
+                  <SubmitButton title={buttonTitle} />
+                </View>
+              </AppForm>
+            </View>
           </View>
-        </View>
-      </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
       </ScrollView>
     </Modal>
   );
